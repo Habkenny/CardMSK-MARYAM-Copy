@@ -1,24 +1,168 @@
+/* THEME BUTTON STYLES */
+.btn {
+  display: inline-block;
+  padding: 10px 28px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1.08em;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #a278b5 60%, #7b8a3a 100%);
+  border: 2px solid #a278b5;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px #a278b522;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+  text-decoration: none;
+  margin-top: 18px;
+}
+.btn:hover,
+.btn:focus {
+  background: linear-gradient(90deg, #7b8a3a 60%, #a278b5 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px #a278b544;
+}
+
+/* SECTION SPACING FOR LUXURIOUS FEEL */
+.bismillah,
+.families,
+.subtitle,
+.main-title,
+.names,
+.details,
+.venue,
+.color-day,
+.rsvp,
+.note-box {
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+.bismillah {
+  margin-top: 0;
+}
+.note-box {
+  margin-bottom: 0;
+}
+.rsvp {
+  text-align: center;
+  margin-top: 20px;
+}
+.rsvp {
+  text-align: center;
+  margin-top: 20px;
+}
+.rsvp h3 {
+  font-family: "Playfair Display", serif;
+  color: #bfa14a;
+  margin-bottom: 12px;
+}
+
+.rsvp-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.rsvp-column {
+  flex: 1;
+  background: #ffffffcc;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #e6c20055;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.rsvp-title {
+  font-weight: bold;
+  color: #1a7c4a;
+  margin-bottom: 6px;
+}
+
+.rsvp-column p {
+  margin: 4px 0;
+  font-size: 0.95em;
+}
+
+@media (max-width: 600px) {
+  .rsvp-container {
+    flex-direction: column;
+  }
+}
 body {
-  background: #fff;
+  background: #f8f6fb;
   font-family: "Montserrat", Arial, sans-serif;
   margin: 0;
   padding: 0;
+  position: relative;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
 }
 .invitation-container {
   max-width: 500px;
   margin: 40px auto;
-  background: #fff;
+  background: #fff7ff;
   border-radius: 24px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px rgba(120, 128, 96, 0.1);
   padding: 40px 32px 32px 32px;
   position: relative;
   overflow: hidden;
+  border: 4px solid #b9b88a;
+  background-blend-mode: lighten;
+  background-color: #f8f6fb;
+  /* Soft overlay for text readability */
+}
+.invitation-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("greenflower.jpeg") center/cover no-repeat;
+  opacity: 0.31;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.invitation-container > * {
+  position: relative;
+  z-index: 1;
 }
 .gold-border {
-  border: 4px solid #e6c200;
+  border: 4px solid #b9b88a;
   box-shadow:
-    0 0 16px 2px #e6c20033,
-    0 4px 24px rgba(0, 0, 0, 0.08);
+    0 0 16px 2px #b9b88a66,
+    0 0 32px 8px #e6e6f6aa,
+    0 4px 24px rgba(120, 128, 96, 0.1);
+  animation: shimmer-glow 2.5s infinite linear;
+  position: relative;
+}
+
+@keyframes shimmer-glow {
+  0% {
+    box-shadow:
+      0 0 16px 2px #b9b88a66,
+      0 0 32px 8px #e6e6f6aa,
+      0 4px 24px rgba(120, 128, 96, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 32px 8px #b9b88acc,
+      0 0 64px 16px #e6e6f6cc,
+      0 4px 24px rgba(120, 128, 96, 0.16);
+  }
+  100% {
+    box-shadow:
+      0 0 16px 2px #b9b88a66,
+      0 0 32px 8px #e6e6f6aa,
+      0 4px 24px rgba(120, 128, 96, 0.1);
+  }
 }
 .floral-top-center {
   display: flex;
@@ -29,19 +173,31 @@ body {
 .floral-corner {
   position: absolute;
   width: 120px;
-  opacity: 0.18;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 2;
 }
-.floral-top {
+.floral-top-left {
   top: 0;
   left: 0;
 }
-.floral-bottom {
+.floral-top-right {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+.floral-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+.floral-bottom-right {
   bottom: 0;
   right: 0;
-  transform: rotate(180deg);
+  transform: scaleX(-1) scaleY(-1);
 }
 .bismillah {
-  color: #1a7c4a;
+  color: #7b8a3a;
   font-weight: bold;
   text-align: center;
   font-size: 1.1em;
@@ -55,22 +211,22 @@ body {
 }
 .main-title {
   text-align: center;
-  color: #bfa14a;
-  font-family: "Playfair Display", serif;
-  font-size: 2em;
-  font-weight: 700;
+  color: #a278b5;
+  font-family: "Great Vibes", "Playfair Display", serif;
+  font-size: 2.2em;
+  font-weight: 400;
   margin: 18px 0 10px 0;
   letter-spacing: 1px;
   text-shadow:
-    0 1px 8px #e6c20055,
+    0 1px 8px #a278b555,
     0 0px 1px #fff;
 }
 .icon-ring {
   font-size: 1.1em;
-  color: #bfa14a;
+  color: #a278b5;
   margin: 0 4px;
   vertical-align: middle;
-  filter: drop-shadow(0 0 2px #e6c20088);
+  filter: drop-shadow(0 0 2px #a278b588);
 }
 .subtitle {
   text-align: center;
@@ -79,26 +235,37 @@ body {
 }
 .names {
   text-align: center;
-  font-family: "Playfair Display", serif;
-  font-size: 1.5em;
+  font-family: "Great Vibes", "Playfair Display", serif;
+  font-size: 2em;
   margin: 18px 0 0 0;
+  color: #7b8a3a;
 }
 .and-heart,
 .icon-heart {
-  color: #e06c9f;
+  color: #a278b5; /* lilac */
   font-size: 1.3em;
   font-weight: bold;
   margin: 0 8px;
   vertical-align: middle;
   text-shadow:
-    0 1px 8px #e06c9f33,
+    0 1px 8px #a278b533,
     0 0px 1px #fff;
 }
 .icon-flower {
-  font-size: 1.1em;
-  color: #7bb661;
-  margin: 0 4px;
+  font-size: 1.4em;
+  background: linear-gradient(135deg, #a278b5 40%, #7b8a3a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin: 0 6px;
   vertical-align: middle;
+  filter: drop-shadow(0 0 6px #a278b555);
+  transition: transform 0.2s;
+}
+.icon-flower:hover {
+  transform: scale(1.15) rotate(-8deg);
+  filter: drop-shadow(0 0 12px #a278b577);
 }
 .details {
   text-align: center;
@@ -114,8 +281,11 @@ body {
   text-align: center;
   font-size: 1em;
   margin: 10px 0 0 0;
-  color: #1a7c4a;
+  color: #7b8a3a;
   font-weight: 600;
+  background: #ede7f6;
+  border-radius: 8px;
+  padding: 4px 0;
 }
 .rsvp {
   text-align: center;
@@ -124,8 +294,8 @@ body {
 }
 .note-box {
   margin: 28px 0 0 0;
-  background: #e6f7ef;
-  border: 2px solid #1a7c4a;
+  background: #ede7f6;
+  border: 2px solid #7b8a3a;
   border-radius: 16px;
   padding: 18px 16px 10px 16px;
   text-align: center;
@@ -134,11 +304,11 @@ body {
   position: relative;
 }
 .note-box strong {
-  color: #1a7c4a;
+  color: #7b8a3a;
 }
 .dua {
   margin-top: 10px;
-  color: #1a7c4a;
+  color: #a278b5;
   font-style: italic;
   font-size: 1em;
 }
